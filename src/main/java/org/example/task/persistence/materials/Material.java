@@ -60,4 +60,13 @@ public class Material {
         this.icon = icon;
     }
 
+    @Override
+    public String toString() {
+        return "Material: " + displayName + '\n' +
+                "ID: " + id + '\n' +
+                "MaxCapacity: " + maxCapacity + '\n' +
+                "Type: " + type + '\n' +
+                "Description: " + description + '\n' +
+                "Icon: " + icon + '\n';
+    }
 }

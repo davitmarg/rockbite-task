@@ -35,4 +35,10 @@ public class Player {
     public void setWarehouses(List<Warehouse> warehouses) {
         this.warehouses = warehouses;
     }
+
+    @Override
+    public String toString() {
+        return "Player: " + name + ", ID = " + id + "\n" +
+                "Warehouses: " + warehouses;
+    }
 }

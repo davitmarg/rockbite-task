@@ -4,17 +4,17 @@ import org.example.task.converter.PlayerConverter;
 import org.example.task.facade.player.model.PlayerRequestModel;
 import org.example.task.facade.player.model.PlayerResponseModel;
 import org.example.task.persistence.player.Player;
-import org.example.task.service.player.implementation.PlayerService;
+import org.example.task.service.player.PlayerServiceInterface;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 public class PlayerFacade {
-    private final PlayerService playerService;
+    private final PlayerServiceInterface playerService;
     private final PlayerConverter playerConverter;
 
-    public PlayerFacade(PlayerService playerService, PlayerConverter playerConverter) {
+    public PlayerFacade(PlayerServiceInterface playerService, PlayerConverter playerConverter) {
         this.playerService = playerService;
         this.playerConverter = playerConverter;
     }

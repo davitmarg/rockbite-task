@@ -6,16 +6,18 @@ import org.example.task.facade.player.model.PlayerResponseModel;
 import org.example.task.facade.warehouse.model.WarehouseResponseModel;
 import org.example.task.persistence.player.Player;
 import org.example.task.persistence.warehouse.Warehouse;
-import org.example.task.service.warehouse_management.implementation.WarehouseManagementService;
+import org.example.task.service.warehouse_management.WarehouseManagementServiceInterface;
 import org.springframework.stereotype.Component;
 
 @Component
 public class WarehouseManagementFacade {
     private final PlayerConverter playerConverter;
     private final WarehouseConverter warehouseConverter;
-    private final WarehouseManagementService warehouseManagementService;
+    private final WarehouseManagementServiceInterface warehouseManagementService;
 
-    public WarehouseManagementFacade(PlayerConverter playerConverter, WarehouseConverter warehouseConverter, WarehouseManagementService warehouseManagementService) {
+    public WarehouseManagementFacade(PlayerConverter playerConverter,
+                                     WarehouseConverter warehouseConverter,
+                                     WarehouseManagementServiceInterface warehouseManagementService) {
         this.playerConverter = playerConverter;
         this.warehouseConverter = warehouseConverter;
         this.warehouseManagementService = warehouseManagementService;

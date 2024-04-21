@@ -1,6 +1,5 @@
 package org.example.task.facade.player.model;
 import org.example.task.facade.warehouse.model.WarehouseResponseModel;
-import org.example.task.persistence.warehouse.Warehouse;
 
 import java.util.List;
 
@@ -31,5 +30,11 @@ public class PlayerResponseModel {
 
     public void setWarehouses(List<WarehouseResponseModel> warehouses) {
         this.warehouses = warehouses;
+    }
+
+    @Override
+    public String toString() {
+        return "Player: " + name + ", ID = " + id + "\n" +
+                "Warehouses: " + warehouses;
     }
 }
