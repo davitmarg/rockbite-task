@@ -4,6 +4,7 @@ import org.example.task.persistence.materials.Material;
 import org.example.task.persistence.materials.MaterialRepository;
 import org.example.task.service.material.MaterialServiceInterface;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,22 +19,26 @@ public class MaterialService implements MaterialServiceInterface {
     }
 
     @Override
+    @Transactional
     public Material getMaterial(Long id) {
         Optional<Material> material = materialRepository.findById(id);
         return material.orElse(null);
     }
 
     @Override
+    @Transactional
     public List<Material> getAllMaterials() {
         return materialRepository.findAll();
     }
 
     @Override
+    @Transactional
     public Material addMaterial(Material material) {
         return materialRepository.save(material);
     }
 
     @Override
+    @Transactional
     public Material updateMaterial(Long id, Material material) {
         Material materialById = materialRepository.findById(id).orElse(null);
         if (materialById != null) {
@@ -48,6 +53,7 @@ public class MaterialService implements MaterialServiceInterface {
     }
 
     @Override
+    @Transactional
     public void deleteMaterial(Long id) {
         materialRepository.deleteById(id);
     }

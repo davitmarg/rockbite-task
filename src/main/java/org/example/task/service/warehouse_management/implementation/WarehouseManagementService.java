@@ -8,6 +8,7 @@ import org.example.task.persistence.warehouse.Warehouse;
 import org.example.task.persistence.warehouse.WarehouseRepository;
 import org.example.task.service.warehouse_management.WarehouseManagementServiceInterface;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
@@ -25,6 +26,7 @@ public class WarehouseManagementService implements WarehouseManagementServiceInt
     }
 
     @Override
+    @Transactional
     public Player addWarehosueToPlayer(Long playerId) {
         Player player = playerRepository.findById(playerId).orElse(null);
         if (player != null) {
@@ -36,6 +38,7 @@ public class WarehouseManagementService implements WarehouseManagementServiceInt
     }
 
     @Override
+    @Transactional
     public Warehouse addMaterial(Long warehouseId, Long materialId, Integer quantity){
         Warehouse warehouse = warehouseRepository.findById(warehouseId).orElse(null);
         Material material = materialRepository.findById(materialId).orElse(null);
@@ -54,6 +57,7 @@ public class WarehouseManagementService implements WarehouseManagementServiceInt
     }
 
     @Override
+    @Transactional
     public Warehouse subtractMaterial(Long warehouseId, Long materialId, Integer quantity){
         Warehouse warehouse = warehouseRepository.findById(warehouseId).orElse(null);
         Material material = materialRepository.findById(materialId).orElse(null);
@@ -72,6 +76,7 @@ public class WarehouseManagementService implements WarehouseManagementServiceInt
     }
 
     @Override
+    @Transactional
     public Warehouse moveMaterial(Long sourceWarehouseId, Long destinationWarehouseId,
                                   Long materialId, Integer quantity) {
 
@@ -95,6 +100,7 @@ public class WarehouseManagementService implements WarehouseManagementServiceInt
     }
 
     @Override
+    @Transactional
     public Warehouse moveAllMaterial(Long sourceWarehouseId, Long destinationWarehouseId, Long materialId) {
         Warehouse sourceWarehouse = warehouseRepository.findById(sourceWarehouseId).orElse(null);
         Warehouse destinationWarehouse = warehouseRepository.findById(destinationWarehouseId).orElse(null);
